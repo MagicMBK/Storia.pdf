@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="it">
-<head>
+<html lang="it"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSTIIIII</title>
@@ -143,7 +143,7 @@
         <!-- Title Page -->
         <div class="page-break"></div>
         <div style="text-align: center; margin-top: 80px; margin-bottom: 80px;">
-            <p class="title">PreVerifica<br/>Sistemi</p>
+            <p class="title">PreVerifica<br>Sistemi</p>
         </div>
         
         <!-- Header Info -->
@@ -159,13 +159,22 @@
         <div class="section-break">
             <h1>1. INTRODUZIONE</h1>
             
-            <p>L'obiettivo del progetto è la realizzazione dell'infrastruttura di rete interna dell'azienda WeDev S.r.l., finalizzata alla centralizzazione della gestione di utenti, computer e servizi di rete.</p>
+            <p>L'obiettivo del progetto è la realizzazione 
+dell'infrastruttura di rete interna dell'azienda WeDev S.r.l., 
+finalizzata alla centralizzazione della gestione di utenti, computer e 
+servizi di rete.</p>
             
-            <p>La soluzione adottata si basa sull'implementazione di un'architettura Windows Server, capace di garantire gestione centralizzata, sicurezza potenziata ed efficienza operativa ottimizzata.</p>
+            <p>La soluzione adottata si basa sull'implementazione di 
+un'architettura Windows Server, capace di garantire gestione 
+centralizzata, sicurezza potenziata ed efficienza operativa ottimizzata.</p>
             
-            <p>Il progetto riguarda una rete aziendale locale (LAN) costituita da circa 25 postazioni client Windows, dislocate nelle diverse aree funzionali dell'azienda.</p>
+            <p>Il progetto riguarda una rete aziendale locale (LAN) 
+costituita da circa 25 postazioni client Windows, dislocate nelle 
+diverse aree funzionali dell'azienda.</p>
             
-            <p>L'attuale gestione decentralizzata delle postazioni genera criticità nel controllo degli accessi, problematiche di sicurezza e complessità nella manutenzione ordinaria.</p>
+            <p>L'attuale gestione decentralizzata delle postazioni 
+genera criticità nel controllo degli accessi, problematiche di sicurezza
+ e complessità nella manutenzione ordinaria.</p>
             
             <p>L'adozione di un dominio Windows permette di ottenere:</p>
             
@@ -183,9 +192,16 @@
             
             <h2>Contesto Operativo e Utenti</h2>
             
-            <p>WeDev S.r.l. gestisce 25 postazioni client per personale amministrativo, sviluppatori e tecnici IT. Gli utenti accederanno tramite credenziali di dominio <b>wedev.local</b> per autenticarsi, utilizzare risorse condivise, consultare l'intranet e connettersi da remoto (se autorizzati).</p>
+            <p>WeDev S.r.l. gestisce 25 postazioni client per personale 
+amministrativo, sviluppatori e tecnici IT. Gli utenti accederanno 
+tramite credenziali di dominio <b>wedev.local</b> per autenticarsi, utilizzare risorse condivise, consultare l'intranet e connettersi da remoto (se autorizzati).</p>
             
-            <p>Ogni postazione sarà configurata dall'amministratore e associata al dominio. I permessi saranno gestiti tramite Unità Organizzative (OU) e gruppi di sicurezza, con policy di scadenza password ogni 90 giorni. I dati risiedono su storage centralizzato con backup periodici e configurazione RAID per garantire continuità operativa.</p>
+            <p>Ogni postazione sarà configurata dall'amministratore e 
+associata al dominio. I permessi saranno gestiti tramite Unità 
+Organizzative (OU) e gruppi di sicurezza, con policy di scadenza 
+password ogni 90 giorni. I dati risiedono su storage centralizzato con 
+backup periodici e configurazione RAID per garantire continuità 
+operativa.</p>
             
             <h2>Requisiti Hardware e Software</h2>
             
@@ -210,7 +226,9 @@
             
             <h2>Requisiti Funzionali e Non Funzionali</h2>
             
-            <p><b>Funzionali</b>: autenticazione centralizzata, gestione computer tramite dominio, risoluzione DNS, hosting intranet, accesso remoto sicuro, condivisione controllata risorse.</p>
+            <p><b>Funzionali</b>: autenticazione centralizzata, gestione
+ computer tramite dominio, risoluzione DNS, hosting intranet, accesso 
+remoto sicuro, condivisione controllata risorse.</p>
             
             <p><b>Non Funzionali</b>:</p>
             <ul>
@@ -242,10 +260,12 @@
             
             <p><b>Piano di Indirizzamento IP</b></p>
             
-            <p>L'assegnazione degli indirizzi IP avviene in modalità <b>statica</b> per il server e per i client, garantendo stabilità dei servizi critici e facilità di gestione della rete aziendale di piccole dimensioni.</p>
+            <p>L'assegnazione degli indirizzi IP avviene in modalità <b>statica</b>
+ per il server e per i client, garantendo stabilità dei servizi critici e
+ facilità di gestione della rete aziendale di piccole dimensioni.</p>
             
             <table>
-                <tr>
+                <tbody><tr>
                     <th>Dispositivo</th>
                     <th>Indirizzo IP</th>
                     <th>Subnet Mask</th>
@@ -280,7 +300,7 @@
                     <td>-</td>
                     <td>-</td>
                 </tr>
-            </table>
+            </tbody></table>
             
             <p><b>Motivazione IP Statico per il Server</b></p>
             
@@ -339,23 +359,35 @@
                 <li>Verificare con ipconfig e ping</li>
             </ol>
             
-            <p><b>Motivazione IP statico:</b> Il server necessita di IP statico perché DNS e Active Directory devono essere sempre raggiungibili allo stesso indirizzo per garantire stabilità dei servizi.</p>
+            <p><b>Motivazione IP statico:</b> Il server necessita di IP 
+statico perché DNS e Active Directory devono essere sempre raggiungibili
+ allo stesso indirizzo per garantire stabilità dei servizi.</p>
             
             <h2>2. Active Directory Domain Services – Domain Controller</h2>
             
-            <p><b>Procedura:</b></p>
+            <p><b>Procedura di installazione e configurazione:</b></p>
             <ol>
                 <li>Server Manager → Aggiungi ruoli e funzionalità</li>
                 <li>Selezionare <b>Active Directory Domain Services</b></li>
-                <li>Promuovere il server a Domain Controller</li>
-                <li>Creare nuovo dominio: <b>wedev.local</b></li>
-                <li>Impostare livello funzionale e password ripristino</li>
-                <li>Riavviare</li>
+                <li>Completare l'installazione delle funzionalità richieste</li>
+                <li>Promuovere il server a Domain Controller tramite la notifica post-installazione</li>
+                <li>Creare nuova foresta e dominio radice: <b>wedev.local</b></li>
+                <li>Impostare livello funzionale del dominio e della foresta (Windows Server 2016 o superiore)</li>
+                <li>Configurare password di ripristino servizi directory (DSRM)</li>
+                <li>Verificare le opzioni DNS e le impostazioni NetBIOS</li>
+                <li>Completare e riavviare il server</li>
             </ol>
             
-            <p><b>Ruolo PDC:</b> Gestisce autenticazione utenti, database Active Directory e coordina le operazioni di dominio.</p>
+            <p><b>Ruolo del Primary Domain Controller (PDC):</b> Il PDC gestisce l'autenticazione degli utenti, mantiene il database centralizzato di Active Directory, coordina le operazioni di replica nel dominio e detiene i ruoli FSMO (Flexible Single Master Operations) quali Schema Master, Domain Naming Master, PDC Emulator, RID Master e Infrastructure Master. Il PDC Emulator è particolarmente importante per la sincronizzazione dell'orario e la gestione delle password.</p>
             
-            <p><b>Vantaggi AD:</b> Gestione centralizzata, sicurezza migliorata, scalabilità, controllo unificato accessi.</p>
+            <p><b>Vantaggi principali di Active Directory:</b></p>
+            <ul>
+                <li><b>Gestione centralizzata:</b> amministrazione unificata di utenti, computer e risorse da un'unica console</li>
+                <li><b>Sicurezza migliorata:</b> autenticazione Kerberos, policy di sicurezza uniformi e controllo granulare degli accessi</li>
+                <li><b>Scalabilità:</b> facilità nell'aggiungere nuovi utenti e computer senza modificare l'infrastruttura di base</li>
+                <li><b>Single Sign-On (SSO):</b> gli utenti accedono una volta sola per utilizzare tutte le risorse autorizzate del dominio</li>
+                <li><b>Group Policy:</b> applicazione automatica di configurazioni e policy a utenti e computer organizzati in OU</li>
+            </ul>
             
             <h2>3. DNS Server</h2>
             
@@ -474,8 +506,11 @@
             
             <p>Gli obiettivi iniziali sono stati raggiunti grazie alla centralizzazione dei servizi tramite Windows Server e Active Directory.</p>
             
-            <p>L'infrastruttura progettata garantisce gestione semplificata, sicurezza elevata e possibilità di espansione futura, rispondendo efficacemente alle necessità operative dell'azienda.</p>
+            <p>L'infrastruttura progettata garantisce gestione 
+semplificata, sicurezza elevata e possibilità di espansione futura, 
+rispondendo efficacemente alle necessità operative dell'azienda.</p>
         </div>
     </div>
-</body>
-</html>
+
+
+</body></html>
